@@ -67,6 +67,7 @@ public class MainWindow {
 		frmShDockerUi.setBackground(new Color(56, 60, 74));
 		frmShDockerUi.setBounds(100, 100, 450, 401);
 		frmShDockerUi.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmShDockerUi.setLocationRelativeTo(null);
 		frmShDockerUi.setResizable(false);
 
 		JLayeredPane layeredPane = new JLayeredPane();
