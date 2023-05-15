@@ -8,6 +8,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import Services.MongoDbService;
 import Services.MsSqlService;
 import Services.MySqlService;
 import Services.OracleService;
@@ -350,6 +351,40 @@ public class MainWindow {
 
 				checkBoxStopOracle.setSelected(true);
 				checkBoxStartOracle.setSelected(false);
+			}
+		});
+
+		// Start MongoDB Service
+		btnStartMongoDb.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MongoDbService mongoDbService = new MongoDbService();
+
+				// Using thread to improve code speed
+				Thread threadStartMongoDb = new Thread(() -> {
+					mongoDbService.Start();
+				});
+
+				threadStartMongoDb.start();
+
+				checkBoxStartMongoDb.setSelected(true);
+				checkBoxStopMongoDb.setSelected(false);
+			}
+		});
+
+		// Stop MongoDB Service
+		btnStopMongoDb.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				MongoDbService mongoDbService = new MongoDbService();
+
+				// Using thread to improve code speed
+				Thread threadStopMongoDb = new Thread(() -> {
+					mongoDbService.Stop();
+				});
+
+				threadStopMongoDb.start();
+
+				checkBoxStopMongoDb.setSelected(true);
+				checkBoxStartMongoDb.setSelected(false);
 			}
 		});
 
