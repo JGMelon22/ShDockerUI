@@ -10,6 +10,7 @@ import javax.swing.SwingConstants;
 
 import Services.MsSqlService;
 import Services.MySqlService;
+import Services.OracleService;
 import Services.PostgreService;
 
 import javax.swing.JButton;
@@ -315,6 +316,40 @@ public class MainWindow {
 
 				checkBoxStopPostgres.setSelected(true);
 				checkBoxStartPostgres.setSelected(false);
+			}
+		});
+
+		// Start Oracle Service
+		btnStartOracle.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				OracleService oracleService = new OracleService();
+
+				// Using thread to improve code speed
+				Thread threadStartOracle = new Thread(() -> {
+					oracleService.Start();
+				});
+
+				threadStartOracle.start();
+
+				checkBoxStartOracle.setSelected(true);
+				checkBoxStopOracle.setSelected(false);
+			}
+		});
+
+		// Stop Oracle Service
+		btnStopOracle.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				OracleService oracleService = new OracleService();
+
+				// Using thread to improve code speed
+				Thread threadStopOracle = new Thread(() -> {
+					oracleService.Stop();
+				});
+
+				threadStopOracle.start();
+
+				checkBoxStopOracle.setSelected(true);
+				checkBoxStartOracle.setSelected(false);
 			}
 		});
 
