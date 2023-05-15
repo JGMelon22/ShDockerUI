@@ -10,6 +10,7 @@ import javax.swing.SwingConstants;
 
 import Services.MsSqlService;
 import Services.MySqlService;
+import Services.PostgreService;
 
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -280,6 +281,40 @@ public class MainWindow {
 
 				checkBoxStopMySql.setSelected(true);
 				checkBoxStartMySql.setSelected(false);
+			}
+		});
+
+		// Start Postgre Service
+		btnStartPostgres.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PostgreService postgreService = new PostgreService();
+
+				// Using thread to improve code speed
+				Thread threadStartPostgre = new Thread(() -> {
+					postgreService.Start();
+				});
+
+				threadStartPostgre.start();
+
+				checkBoxStartPostgres.setSelected(true);
+				checkBoxStopPostgres.setSelected(false);
+			}
+		});
+
+		// Stop Postgre Service
+		btnStopPostgres.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				PostgreService postgreService = new PostgreService();
+
+				// Using thread to improve code speed
+				Thread threadStopPostgre = new Thread(() -> {
+					postgreService.Stop();
+				});
+
+				threadStopPostgre.start();
+
+				checkBoxStopPostgres.setSelected(true);
+				checkBoxStartPostgres.setSelected(false);
 			}
 		});
 
