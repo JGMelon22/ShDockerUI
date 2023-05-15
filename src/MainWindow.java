@@ -1,0 +1,377 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLayeredPane;
+import java.awt.BorderLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
+
+import javax.swing.JCheckBox;
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class MainWindow {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MainWindow window = new MainWindow();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public MainWindow() {
+		initialize();
+		Image img = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/logo.png"));
+		frame.setIconImage(img);
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.getContentPane().setBackground(new Color(56, 60, 74));
+		frame.setBackground(new Color(56, 60, 74));
+		frame.setBounds(100, 100, 450, 401);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setResizable(false);
+
+		JLayeredPane layeredPane = new JLayeredPane();
+		layeredPane.setBackground(new Color(53, 132, 228));
+		frame.getContentPane().add(layeredPane, BorderLayout.CENTER);
+
+		JLabel lblNewLabel = new JLabel("SQL Server");
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setFont(new Font("Dialog", Font.PLAIN, 14));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+
+		JLabel lblNewLabel_1 = new JLabel("MySQL");
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setFont(new Font("Dialog", Font.PLAIN, 14));
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+
+		JLabel lblNewLabel_2 = new JLabel("Postgres");
+		lblNewLabel_2.setForeground(new Color(255, 255, 255));
+		lblNewLabel_2.setFont(new Font("Dialog", Font.PLAIN, 14));
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+
+		JLabel lblNewLabel_3 = new JLabel("Oracle");
+		lblNewLabel_3.setForeground(new Color(255, 255, 255));
+		lblNewLabel_3.setFont(new Font("Dialog", Font.PLAIN, 14));
+		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
+
+		JLabel lblNewLabel_4 = new JLabel("MongoDB");
+		lblNewLabel_4.setForeground(new Color(255, 255, 255));
+		lblNewLabel_4.setFont(new Font("Dialog", Font.PLAIN, 14));
+		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
+
+		JButton btnStartMsSql = new JButton("Start");
+		btnStartMsSql.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnStartMsSql.setForeground(new Color(255, 255, 255));
+		btnStartMsSql.setBackground(new Color(64, 69, 82));
+
+		JButton btnStopMsSql = new JButton("Stop");
+		btnStopMsSql.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnStopMsSql.setForeground(new Color(255, 255, 255));
+		btnStopMsSql.setBackground(new Color(64, 69, 82));
+
+		JButton btnStopMySql = new JButton("Stop");
+		btnStopMySql.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnStopMySql.setForeground(new Color(255, 255, 255));
+		btnStopMySql.setBackground(new Color(64, 69, 82));
+
+		JButton btnStartMySql = new JButton("Start");
+		btnStartMySql.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnStartMySql.setForeground(new Color(255, 255, 255));
+		btnStartMySql.setBackground(new Color(64, 69, 82));
+
+		JButton btnStartPostgres = new JButton("Start");
+		btnStartPostgres.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnStartPostgres.setForeground(new Color(255, 255, 255));
+		btnStartPostgres.setBackground(new Color(64, 69, 82));
+
+		JButton btnStopPostgres = new JButton("Stop");
+		btnStopPostgres.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnStopPostgres.setForeground(new Color(255, 255, 255));
+		btnStopPostgres.setBackground(new Color(64, 69, 82));
+
+		JButton btnStartOracle = new JButton("Start");
+		btnStartOracle.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnStartOracle.setForeground(new Color(255, 255, 255));
+		btnStartOracle.setBackground(new Color(64, 69, 82));
+
+		JButton btnStopOracle = new JButton("Stop");
+		btnStopOracle.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnStopOracle.setForeground(new Color(255, 255, 255));
+		btnStopOracle.setBackground(new Color(64, 69, 82));
+
+		JButton btnStopMongoDb = new JButton("Stop");
+		btnStopMongoDb.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnStopMongoDb.setForeground(new Color(255, 255, 255));
+		btnStopMongoDb.setBackground(new Color(64, 69, 82));
+
+		JButton btnStartMongoDb = new JButton("Start");
+		btnStartMongoDb.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnStartMongoDb.setForeground(new Color(255, 255, 255));
+		btnStartMongoDb.setBackground(new Color(64, 69, 82));
+
+		JCheckBox checkBoxStopMongoDb = new JCheckBox("");
+		checkBoxStopMongoDb.setForeground(new Color(246, 245, 244));
+		checkBoxStopMongoDb.setBackground(new Color(56, 60, 74));
+		checkBoxStopMongoDb.setFont(new Font("Dialog", Font.BOLD, 14));
+		checkBoxStopMongoDb.setEnabled(false);
+		checkBoxStopMongoDb.setHorizontalAlignment(SwingConstants.CENTER);
+
+		JCheckBox checkBoxStopOracle = new JCheckBox("");
+		checkBoxStopOracle.setForeground(new Color(246, 245, 244));
+		checkBoxStopOracle.setBackground(new Color(56, 60, 74));
+		checkBoxStopOracle.setFont(new Font("Dialog", Font.BOLD, 14));
+		checkBoxStopOracle.setEnabled(false);
+		checkBoxStopOracle.setHorizontalAlignment(SwingConstants.CENTER);
+
+		JCheckBox checkBoxStopPostgres = new JCheckBox("");
+		checkBoxStopPostgres.setForeground(new Color(246, 245, 244));
+		checkBoxStopPostgres.setBackground(new Color(56, 60, 74));
+		checkBoxStopPostgres.setFont(new Font("Dialog", Font.BOLD, 14));
+		checkBoxStopPostgres.setEnabled(false);
+		checkBoxStopPostgres.setHorizontalAlignment(SwingConstants.CENTER);
+
+		JCheckBox checkBoxStopMySql = new JCheckBox("");
+		checkBoxStopMySql.setForeground(new Color(246, 245, 244));
+		checkBoxStopMySql.setBackground(new Color(56, 60, 74));
+		checkBoxStopMySql.setFont(new Font("Dialog", Font.BOLD, 14));
+		checkBoxStopMySql.setEnabled(false);
+		checkBoxStopMySql.setHorizontalAlignment(SwingConstants.CENTER);
+
+		JCheckBox checkBoxStopMsSql = new JCheckBox("");
+		checkBoxStopMsSql.setForeground(new Color(246, 245, 244));
+		checkBoxStopMsSql.setBackground(new Color(56, 60, 74));
+		checkBoxStopMsSql.setFont(new Font("Dialog", Font.BOLD, 14));
+		checkBoxStopMsSql.setEnabled(false);
+		checkBoxStopMsSql.setHorizontalAlignment(SwingConstants.CENTER);
+
+		JCheckBox checkBoxStartMongoDb = new JCheckBox("");
+		checkBoxStartMongoDb.setForeground(new Color(246, 245, 244));
+		checkBoxStartMongoDb.setBackground(new Color(56, 60, 74));
+		checkBoxStartMongoDb.setFont(new Font("Dialog", Font.BOLD, 14));
+		checkBoxStartMongoDb.setEnabled(false);
+		checkBoxStartMongoDb.setHorizontalAlignment(SwingConstants.CENTER);
+
+		JCheckBox checkBoxStartOracle = new JCheckBox("");
+		checkBoxStartOracle.setForeground(new Color(246, 245, 244));
+		checkBoxStartOracle.setBackground(new Color(56, 60, 74));
+		checkBoxStartOracle.setFont(new Font("Dialog", Font.BOLD, 14));
+		checkBoxStartOracle.setEnabled(false);
+		checkBoxStartOracle.setHorizontalAlignment(SwingConstants.CENTER);
+
+		JCheckBox checkBoxStartPostgres = new JCheckBox("");
+		checkBoxStartPostgres.setForeground(new Color(246, 245, 244));
+		checkBoxStartPostgres.setBackground(new Color(56, 60, 74));
+		checkBoxStartPostgres.setFont(new Font("Dialog", Font.BOLD, 14));
+		checkBoxStartPostgres.setEnabled(false);
+		checkBoxStartPostgres.setHorizontalAlignment(SwingConstants.CENTER);
+
+		JCheckBox checkBoxStartMySql = new JCheckBox("");
+		checkBoxStartMySql.setForeground(new Color(246, 245, 244));
+		checkBoxStartMySql.setBackground(new Color(56, 60, 74));
+		checkBoxStartMySql.setFont(new Font("Dialog", Font.BOLD, 14));
+		checkBoxStartMySql.setEnabled(false);
+		checkBoxStartMySql.setHorizontalAlignment(SwingConstants.CENTER);
+
+		JCheckBox checkBoxStartMsSql = new JCheckBox("");
+		checkBoxStartMsSql.setForeground(new Color(246, 245, 244));
+		checkBoxStartMsSql.setBackground(new Color(56, 60, 74));
+		checkBoxStartMsSql.setFont(new Font("Dialog", Font.BOLD, 14));
+		checkBoxStartMsSql.setEnabled(false);
+		checkBoxStartMsSql.setHorizontalAlignment(SwingConstants.CENTER);
+
+		// Set selected checkbox on start button click
+		btnStartMsSql.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				checkBoxStartMongoDb.setSelected(true);
+				checkBoxStartOracle.setSelected(true);
+				checkBoxStartPostgres.setSelected(true);
+				checkBoxStartMySql.setSelected(true);
+				checkBoxStartMsSql.setSelected(true);
+			}
+		});
+		//
+
+		JLabel label = new JLabel("-");
+		label.setForeground(new Color(255, 255, 255));
+
+		JLabel label_1 = new JLabel("-");
+		label_1.setForeground(new Color(255, 255, 255));
+
+		JLabel label_2 = new JLabel("-");
+		label_2.setForeground(new Color(255, 255, 255));
+
+		JLabel label_3 = new JLabel("-");
+		label_3.setForeground(new Color(255, 255, 255));
+
+		JLabel label_4 = new JLabel("-");
+		label_4.setForeground(new Color(255, 255, 255));
+		GroupLayout gl_layeredPane = new GroupLayout(layeredPane);
+		gl_layeredPane.setHorizontalGroup(gl_layeredPane.createParallelGroup(Alignment.LEADING).addGroup(gl_layeredPane
+				.createSequentialGroup().addGap(108)
+				.addGroup(gl_layeredPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(checkBoxStartMsSql, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+						.addComponent(checkBoxStartMySql, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+						.addComponent(checkBoxStartPostgres, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+						.addComponent(checkBoxStartOracle, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+						.addComponent(checkBoxStartMongoDb, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
+				.addPreferredGap(ComponentPlacement.UNRELATED)
+				.addGroup(gl_layeredPane.createParallelGroup(Alignment.LEADING).addGroup(gl_layeredPane
+						.createSequentialGroup().addGap(43)
+						.addGroup(gl_layeredPane.createParallelGroup(Alignment.TRAILING, false)
+								.addComponent(lblNewLabel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addGroup(
+										gl_layeredPane.createSequentialGroup().addComponent(lblNewLabel_2).addGap(7))))
+						.addGroup(gl_layeredPane.createSequentialGroup().addGroup(gl_layeredPane
+								.createParallelGroup(Alignment.TRAILING)
+								.addGroup(gl_layeredPane.createSequentialGroup().addComponent(btnStartMsSql).addGap(4)
+										.addComponent(label_4, GroupLayout.PREFERRED_SIZE, 5,
+												GroupLayout.PREFERRED_SIZE)
+										.addGap(3).addComponent(btnStopMsSql))
+								.addGroup(gl_layeredPane.createSequentialGroup()
+										.addComponent(btnStartPostgres, GroupLayout.PREFERRED_SIZE, 70,
+												GroupLayout.PREFERRED_SIZE)
+										.addGap(3)
+										.addComponent(label_2, GroupLayout.PREFERRED_SIZE, 5,
+												GroupLayout.PREFERRED_SIZE)
+										.addGap(4).addComponent(btnStopPostgres, GroupLayout.PREFERRED_SIZE, 67,
+												GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl_layeredPane.createSequentialGroup()
+										.addComponent(btnStartMySql, GroupLayout.PREFERRED_SIZE, 70,
+												GroupLayout.PREFERRED_SIZE)
+										.addGap(4)
+										.addComponent(label_3, GroupLayout.PREFERRED_SIZE, 5,
+												GroupLayout.PREFERRED_SIZE)
+										.addGap(3).addComponent(btnStopMySql, GroupLayout.PREFERRED_SIZE, 67,
+												GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl_layeredPane.createSequentialGroup()
+										.addComponent(btnStartOracle, GroupLayout.PREFERRED_SIZE, 70,
+												GroupLayout.PREFERRED_SIZE)
+										.addGap(4)
+										.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 5,
+												GroupLayout.PREFERRED_SIZE)
+										.addGap(3).addComponent(btnStopOracle, GroupLayout.PREFERRED_SIZE, 67,
+												GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl_layeredPane.createSequentialGroup()
+										.addComponent(btnStartMongoDb, GroupLayout.PREFERRED_SIZE, 70,
+												GroupLayout.PREFERRED_SIZE)
+										.addGap(4)
+										.addComponent(label, GroupLayout.PREFERRED_SIZE, 5, GroupLayout.PREFERRED_SIZE)
+										.addGap(3).addComponent(btnStopMongoDb, GroupLayout.PREFERRED_SIZE, 67,
+												GroupLayout.PREFERRED_SIZE)))
+								.addGroup(gl_layeredPane.createParallelGroup(Alignment.LEADING)
+										.addGroup(gl_layeredPane.createSequentialGroup().addGap(2)
+												.addComponent(checkBoxStopMongoDb))
+										.addGroup(gl_layeredPane.createSequentialGroup()
+												.addPreferredGap(ComponentPlacement.RELATED)
+												.addComponent(checkBoxStopOracle, GroupLayout.PREFERRED_SIZE, 21,
+														GroupLayout.PREFERRED_SIZE))
+										.addGroup(gl_layeredPane.createSequentialGroup()
+												.addPreferredGap(ComponentPlacement.RELATED)
+												.addComponent(checkBoxStopPostgres, GroupLayout.PREFERRED_SIZE, 21,
+														GroupLayout.PREFERRED_SIZE))
+										.addGroup(gl_layeredPane.createSequentialGroup()
+												.addPreferredGap(ComponentPlacement.RELATED)
+												.addComponent(checkBoxStopMySql, GroupLayout.PREFERRED_SIZE, 21,
+														GroupLayout.PREFERRED_SIZE))
+										.addGroup(gl_layeredPane.createSequentialGroup()
+												.addPreferredGap(ComponentPlacement.RELATED)
+												.addComponent(checkBoxStopMsSql, GroupLayout.PREFERRED_SIZE, 21,
+														GroupLayout.PREFERRED_SIZE)))))
+				.addContainerGap(133, Short.MAX_VALUE))
+				.addGroup(gl_layeredPane.createSequentialGroup().addGap(173)
+						.addComponent(lblNewLabel_1, GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE).addGap(194))
+				.addGroup(gl_layeredPane.createSequentialGroup().addGap(189).addComponent(lblNewLabel_3)
+						.addContainerGap(209, Short.MAX_VALUE))
+				.addGroup(gl_layeredPane.createSequentialGroup().addGap(178).addComponent(lblNewLabel_4)
+						.addContainerGap(195, Short.MAX_VALUE)));
+		gl_layeredPane.setVerticalGroup(gl_layeredPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_layeredPane.createSequentialGroup().addContainerGap().addComponent(lblNewLabel)
+						.addPreferredGap(ComponentPlacement.RELATED)
+						.addGroup(gl_layeredPane
+								.createParallelGroup(Alignment.LEADING).addGroup(gl_layeredPane.createSequentialGroup()
+										.addComponent(checkBoxStartMsSql, GroupLayout.PREFERRED_SIZE, 21,
+												GroupLayout.PREFERRED_SIZE)
+										.addGap(44).addComponent(checkBoxStartMySql, GroupLayout.PREFERRED_SIZE, 21,
+												GroupLayout.PREFERRED_SIZE)
+										.addGap(51)
+										.addComponent(checkBoxStartPostgres, GroupLayout.PREFERRED_SIZE, 21,
+												GroupLayout.PREFERRED_SIZE)
+										.addGap(45)
+										.addComponent(
+												checkBoxStartOracle, GroupLayout.PREFERRED_SIZE, 21,
+												GroupLayout.PREFERRED_SIZE)
+										.addGap(45).addComponent(checkBoxStartMongoDb, GroupLayout.PREFERRED_SIZE, 21,
+												GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl_layeredPane.createSequentialGroup()
+										.addGroup(gl_layeredPane.createParallelGroup(Alignment.LEADING)
+												.addGroup(gl_layeredPane.createParallelGroup(Alignment.BASELINE)
+														.addComponent(btnStartMsSql).addComponent(btnStopMsSql)
+														.addComponent(checkBoxStopMsSql, GroupLayout.PREFERRED_SIZE, 21,
+																GroupLayout.PREFERRED_SIZE))
+												.addComponent(label_4))
+										.addGap(17).addComponent(lblNewLabel_1)
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addGroup(gl_layeredPane.createParallelGroup(Alignment.LEADING)
+												.addGroup(gl_layeredPane.createParallelGroup(Alignment.BASELINE)
+														.addComponent(btnStopMySql).addComponent(btnStartMySql)
+														.addComponent(checkBoxStopMySql, GroupLayout.PREFERRED_SIZE, 21,
+																GroupLayout.PREFERRED_SIZE))
+												.addComponent(label_3))
+										.addGap(24).addComponent(lblNewLabel_2)
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addGroup(gl_layeredPane.createParallelGroup(Alignment.LEADING)
+												.addComponent(btnStartPostgres)
+												.addGroup(gl_layeredPane.createParallelGroup(Alignment.BASELINE)
+														.addComponent(btnStopPostgres)
+														.addComponent(checkBoxStopPostgres, GroupLayout.PREFERRED_SIZE,
+																21, GroupLayout.PREFERRED_SIZE))
+												.addComponent(label_2))
+										.addGap(18).addComponent(lblNewLabel_3)
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addGroup(gl_layeredPane.createParallelGroup(Alignment.LEADING)
+												.addGroup(gl_layeredPane.createParallelGroup(Alignment.BASELINE)
+														.addComponent(btnStartOracle).addComponent(btnStopOracle)
+														.addComponent(checkBoxStopOracle, GroupLayout.PREFERRED_SIZE,
+																21, GroupLayout.PREFERRED_SIZE))
+												.addComponent(label_1))
+										.addGap(18).addComponent(lblNewLabel_4)
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addGroup(gl_layeredPane.createParallelGroup(Alignment.LEADING)
+												.addComponent(checkBoxStopMongoDb)
+												.addGroup(gl_layeredPane.createParallelGroup(Alignment.BASELINE)
+														.addComponent(btnStopMongoDb).addComponent(btnStartMongoDb))
+												.addComponent(label))))
+						.addContainerGap(40, Short.MAX_VALUE)));
+		layeredPane.setLayout(gl_layeredPane);
+	}
+}
