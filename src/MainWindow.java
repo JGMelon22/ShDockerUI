@@ -7,6 +7,9 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+
+import Services.MsSqlService;
+
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
@@ -21,7 +24,7 @@ import java.awt.event.ActionEvent;
 
 public class MainWindow {
 
-	private JFrame frame;
+	private JFrame frmShDockerUi;
 
 	/**
 	 * Launch the application.
@@ -31,7 +34,7 @@ public class MainWindow {
 			public void run() {
 				try {
 					MainWindow window = new MainWindow();
-					window.frame.setVisible(true);
+					window.frmShDockerUi.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -45,23 +48,26 @@ public class MainWindow {
 	public MainWindow() {
 		initialize();
 		Image img = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/logo.png"));
-		frame.setIconImage(img);
+		frmShDockerUi.setIconImage(img);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(56, 60, 74));
-		frame.setBackground(new Color(56, 60, 74));
-		frame.setBounds(100, 100, 450, 401);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setResizable(false);
+		frmShDockerUi = new JFrame();
+		frmShDockerUi.setFont(new Font("FreeSans", Font.PLAIN, 13));
+		frmShDockerUi.setForeground(new Color(246, 245, 244));
+		frmShDockerUi.setTitle("Shell Docker UI");
+		frmShDockerUi.getContentPane().setBackground(new Color(56, 60, 74));
+		frmShDockerUi.setBackground(new Color(56, 60, 74));
+		frmShDockerUi.setBounds(100, 100, 450, 401);
+		frmShDockerUi.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmShDockerUi.setResizable(false);
 
 		JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setBackground(new Color(53, 132, 228));
-		frame.getContentPane().add(layeredPane, BorderLayout.CENTER);
+		frmShDockerUi.getContentPane().add(layeredPane, BorderLayout.CENTER);
 
 		JLabel lblNewLabel = new JLabel("SQL Server");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
@@ -208,17 +214,39 @@ public class MainWindow {
 		checkBoxStartMsSql.setEnabled(false);
 		checkBoxStartMsSql.setHorizontalAlignment(SwingConstants.CENTER);
 
-		// Set selected checkbox on start button click
+		// Start SQL Server Service
 		btnStartMsSql.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				checkBoxStartMongoDb.setSelected(true);
-				checkBoxStartOracle.setSelected(true);
-				checkBoxStartPostgres.setSelected(true);
-				checkBoxStartMySql.setSelected(true);
+				MsSqlService msSqlService = new MsSqlService();
+
+				// Using thread to improve code speed
+				Thread threadStartMsSql = new Thread(() -> {
+					msSqlService.Start();
+				});
+
+				threadStartMsSql.start();
+
 				checkBoxStartMsSql.setSelected(true);
+				checkBoxStopMsSql.setSelected(false);
 			}
 		});
-		//
+
+		// Stop SQL Server Service
+		btnStopMsSql.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				MsSqlService msSqlService = new MsSqlService();
+
+				// Using thread to improve code speed
+				Thread threadStopMsSql = new Thread(() -> {
+					msSqlService.Stop();
+				});
+
+				threadStopMsSql.start();
+
+				checkBoxStopMsSql.setSelected(true);
+				checkBoxStartMsSql.setSelected(false);
+			}
+		});
 
 		JLabel label = new JLabel("-");
 		label.setForeground(new Color(255, 255, 255));
