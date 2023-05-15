@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import Services.MsSqlService;
+import Services.MySqlService;
 
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -245,6 +246,40 @@ public class MainWindow {
 
 				checkBoxStopMsSql.setSelected(true);
 				checkBoxStartMsSql.setSelected(false);
+			}
+		});
+
+		// Start MySQL Service
+		btnStartMySql.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MySqlService mySqlService = new MySqlService();
+
+				// Using thread to improve code speed
+				Thread threadStartMySql = new Thread(() -> {
+					mySqlService.Start();
+				});
+
+				threadStartMySql.start();
+
+				checkBoxStartMySql.setSelected(true);
+				checkBoxStopMySql.setSelected(false);
+			}
+		});
+
+		// Stop MySQL Service
+		btnStopMySql.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				MySqlService mySqlService = new MySqlService();
+
+				// Using thread to improve code speed
+				Thread threadStopMySql = new Thread(() -> {
+					mySqlService.Stop();
+				});
+
+				threadStopMySql.start();
+
+				checkBoxStopMySql.setSelected(true);
+				checkBoxStartMySql.setSelected(false);
 			}
 		});
 
