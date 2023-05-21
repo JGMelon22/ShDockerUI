@@ -258,6 +258,59 @@ public class MainWindow {
 
 				threadStopMsSql.start();
 
+				// Judges the other Container check boxes
+				boolean mySqlContainerState = checkBoxStartMySql.isSelected();
+				boolean postgreesContainerState = checkBoxStartPostgres.isSelected();
+				boolean oracleContainerState = checkBoxStartOracle.isSelected();
+				boolean mongoDBContainerState = checkBoxStartMongoDb.isSelected();
+
+				int switchValue = (mySqlContainerState ? 1 : 0) | (postgreesContainerState ? 2 : 0)
+						| (oracleContainerState ? 4 : 0) | (mongoDBContainerState ? 6 : 0);
+
+				switch (switchValue) {
+				case 1:
+					checkBoxStartMySql.setSelected(false);
+					checkBoxStopMySql.setSelected(true);
+					break;
+
+				case 2:
+					checkBoxStartPostgres.setSelected(false);
+					checkBoxStopPostgres.setSelected(true);
+					break;
+
+				case 3:
+					checkBoxStartOracle.setSelected(false);
+					checkBoxStopOracle.setSelected(true);
+					break;
+
+				case 4:
+					checkBoxStartMongoDb.setSelected(false);
+					checkBoxStopMongoDb.setSelected(true);
+					break;
+
+				case 5:
+					checkBoxStartPostgres.setSelected(false);
+					checkBoxStopPostgres.setSelected(true);
+					break;
+
+				default:
+					checkBoxStartMySql.setSelected(false);
+					checkBoxStopMySql.setSelected(true);
+
+					checkBoxStartPostgres.setSelected(false);
+					checkBoxStopPostgres.setSelected(true);
+
+					checkBoxStartOracle.setSelected(false);
+					checkBoxStopOracle.setSelected(true);
+
+					checkBoxStartMongoDb.setSelected(false);
+					checkBoxStopMongoDb.setSelected(true);
+
+					checkBoxStartPostgres.setSelected(false);
+					checkBoxStopPostgres.setSelected(true);
+					break;
+				}
+
 				checkBoxStopMsSql.setSelected(true);
 				checkBoxStartMsSql.setSelected(false);
 			}
@@ -291,6 +344,55 @@ public class MainWindow {
 				});
 
 				threadStopMySql.start();
+
+				// Judges the other Container check boxes
+				boolean msSqlContainerState = checkBoxStartMsSql.isSelected();
+				boolean postgreesContainerState = checkBoxStartPostgres.isSelected();
+				boolean oracleContainerState = checkBoxStartOracle.isSelected();
+				boolean mongoDBContainerState = checkBoxStartMongoDb.isSelected();
+
+				int switchValue = (msSqlContainerState ? 1 : 0) | (postgreesContainerState ? 2 : 0)
+						| (oracleContainerState ? 4 : 0) | (mongoDBContainerState ? 6 : 0);
+
+				switch (switchValue) {
+
+				case 1:
+					checkBoxStartPostgres.setSelected(false);
+					checkBoxStopPostgres.setSelected(true);
+					break;
+
+				case 2:
+					checkBoxStartOracle.setSelected(false);
+					checkBoxStopOracle.setSelected(true);
+					break;
+
+				case 3:
+					checkBoxStartMongoDb.setSelected(false);
+					checkBoxStopMongoDb.setSelected(true);
+					break;
+
+				case 4:
+					checkBoxStartPostgres.setSelected(false);
+					checkBoxStopPostgres.setSelected(true);
+					break;
+
+				default:
+					checkBoxStartMsSql.setSelected(false);
+					checkBoxStopMsSql.setSelected(true);
+
+					checkBoxStartPostgres.setSelected(false);
+					checkBoxStopPostgres.setSelected(true);
+
+					checkBoxStartOracle.setSelected(false);
+					checkBoxStopOracle.setSelected(true);
+
+					checkBoxStartMongoDb.setSelected(false);
+					checkBoxStopMongoDb.setSelected(true);
+
+					checkBoxStartPostgres.setSelected(false);
+					checkBoxStopPostgres.setSelected(true);
+					break;
+				}
 
 				checkBoxStopMySql.setSelected(true);
 				checkBoxStartMySql.setSelected(false);
@@ -326,6 +428,51 @@ public class MainWindow {
 
 				threadStopPostgre.start();
 
+				// Judges the other Container check boxes
+				boolean msSqlContainerState = checkBoxStartMsSql.isSelected();
+				boolean mySqlContainerState = checkBoxStartMySql.isSelected();
+				boolean oracleContainerState = checkBoxStartOracle.isSelected();
+				boolean mongoDBContainerState = checkBoxStartMongoDb.isSelected();
+
+				int switchValue = (msSqlContainerState ? 1 : 0) | (mySqlContainerState ? 2 : 0)
+						| (oracleContainerState ? 4 : 0) | (mongoDBContainerState ? 6 : 0);
+
+				switch (switchValue) {
+				case 1:
+					checkBoxStartMsSql.setSelected(false);
+					checkBoxStopMsSql.setSelected(true);
+					break;
+
+				case 2:
+					checkBoxStartMySql.setSelected(false);
+					checkBoxStopMySql.setSelected(true);
+					break;
+
+				case 3:
+					checkBoxStartOracle.setSelected(false);
+					checkBoxStopOracle.setSelected(true);
+					break;
+
+				case 4:
+					checkBoxStartMongoDb.setSelected(false);
+					checkBoxStopMongoDb.setSelected(true);
+					break;
+
+				default:
+					checkBoxStartMsSql.setSelected(false);
+					checkBoxStopMsSql.setSelected(true);
+					
+					checkBoxStartMySql.setSelected(false);
+					checkBoxStopMySql.setSelected(true);
+
+					checkBoxStartOracle.setSelected(false);
+					checkBoxStopOracle.setSelected(true);
+
+					checkBoxStartMongoDb.setSelected(false);
+					checkBoxStopMongoDb.setSelected(true);
+					break;
+				}
+
 				checkBoxStopPostgres.setSelected(true);
 				checkBoxStartPostgres.setSelected(false);
 			}
@@ -360,6 +507,52 @@ public class MainWindow {
 
 				threadStopOracle.start();
 
+				// Judges the other Container check boxes
+				boolean msSqlContainerState = checkBoxStartMsSql.isSelected();
+				boolean mySqlContainerState = checkBoxStartMySql.isSelected();
+				boolean postgreesContainerState = checkBoxStartPostgres.isSelected();
+
+				boolean mongoDBContainerState = checkBoxStartMongoDb.isSelected();
+
+				int switchValue = (msSqlContainerState ? 1 : 0) | (mySqlContainerState ? 2 : 0)
+						| (postgreesContainerState ? 4 : 0) | (mongoDBContainerState ? 6 : 0);
+
+				switch (switchValue) {
+				case 1:
+					checkBoxStartMySql.setSelected(false);
+					checkBoxStopMySql.setSelected(true);
+					break;
+
+				case 2:
+					checkBoxStartPostgres.setSelected(false);
+					checkBoxStopPostgres.setSelected(true);
+					break;
+
+				case 3:
+					checkBoxStartMongoDb.setSelected(false);
+					checkBoxStopMongoDb.setSelected(true);
+					break;
+
+				case 4:
+					checkBoxStartPostgres.setSelected(false);
+					checkBoxStopPostgres.setSelected(true);
+					break;
+
+				default:
+					checkBoxStartMsSql.setSelected(false);
+					checkBoxStopMsSql.setSelected(true);
+
+					checkBoxStartMySql.setSelected(false);
+					checkBoxStopMySql.setSelected(true);
+
+					checkBoxStartPostgres.setSelected(false);
+					checkBoxStopPostgres.setSelected(true);
+
+					checkBoxStartMongoDb.setSelected(false);
+					checkBoxStopMongoDb.setSelected(true);
+					break;
+				}
+
 				checkBoxStopOracle.setSelected(true);
 				checkBoxStartOracle.setSelected(false);
 			}
@@ -393,6 +586,57 @@ public class MainWindow {
 				});
 
 				threadStopMongoDb.start();
+
+				// Judges the other Container check boxes
+				boolean msSqlContainerState = checkBoxStartMsSql.isSelected();
+				boolean mySqlContainerState = checkBoxStartMySql.isSelected();
+				boolean postgreesContainerState = checkBoxStartPostgres.isSelected();
+				boolean oracleContainerState = checkBoxStartOracle.isSelected();
+
+				int switchValue = (msSqlContainerState ? 1 : 0) | (mySqlContainerState ? 2 : 0)
+						| (postgreesContainerState ? 4 : 0) | (oracleContainerState ? 6 : 0);
+
+				switch (switchValue) {
+
+				case 1:
+					checkBoxStartMsSql.setSelected(false);
+					checkBoxStopMsSql.setSelected(true);
+					break;
+
+				case 2:
+					checkBoxStartMySql.setSelected(false);
+					checkBoxStopMySql.setSelected(true);
+					break;
+
+				case 3:
+					checkBoxStartPostgres.setSelected(false);
+					checkBoxStopPostgres.setSelected(true);
+					break;
+
+				case 4:
+					checkBoxStartOracle.setSelected(false);
+					checkBoxStopOracle.setSelected(true);
+					break;
+
+				case 5:
+					checkBoxStartPostgres.setSelected(false);
+					checkBoxStopPostgres.setSelected(true);
+					break;
+
+				default:
+					checkBoxStartMySql.setSelected(false);
+					checkBoxStopMySql.setSelected(true);
+
+					checkBoxStartPostgres.setSelected(false);
+					checkBoxStopPostgres.setSelected(true);
+
+					checkBoxStartOracle.setSelected(false);
+					checkBoxStopOracle.setSelected(true);
+
+					checkBoxStartPostgres.setSelected(false);
+					checkBoxStopPostgres.setSelected(true);
+					break;
+				}
 
 				checkBoxStopMongoDb.setSelected(true);
 				checkBoxStartMongoDb.setSelected(false);
