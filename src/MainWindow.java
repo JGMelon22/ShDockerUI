@@ -288,11 +288,6 @@ public class MainWindow {
 					checkBoxStopMongoDb.setSelected(true);
 					break;
 
-				case 5:
-					checkBoxStartPostgres.setSelected(false);
-					checkBoxStopPostgres.setSelected(true);
-					break;
-
 				default:
 					checkBoxStartMySql.setSelected(false);
 					checkBoxStopMySql.setSelected(true);
@@ -305,9 +300,6 @@ public class MainWindow {
 
 					checkBoxStartMongoDb.setSelected(false);
 					checkBoxStopMongoDb.setSelected(true);
-
-					checkBoxStartPostgres.setSelected(false);
-					checkBoxStopPostgres.setSelected(true);
 					break;
 				}
 
@@ -357,23 +349,23 @@ public class MainWindow {
 				switch (switchValue) {
 
 				case 1:
+					checkBoxStartMsSql.setSelected(false);
+					checkBoxStopMsSql.setSelected(true);
+					break;
+
+				case 2:
 					checkBoxStartPostgres.setSelected(false);
 					checkBoxStopPostgres.setSelected(true);
 					break;
 
-				case 2:
+				case 3:
 					checkBoxStartOracle.setSelected(false);
 					checkBoxStopOracle.setSelected(true);
 					break;
 
-				case 3:
+				case 4:
 					checkBoxStartMongoDb.setSelected(false);
 					checkBoxStopMongoDb.setSelected(true);
-					break;
-
-				case 4:
-					checkBoxStartPostgres.setSelected(false);
-					checkBoxStopPostgres.setSelected(true);
 					break;
 
 				default:
@@ -388,9 +380,6 @@ public class MainWindow {
 
 					checkBoxStartMongoDb.setSelected(false);
 					checkBoxStopMongoDb.setSelected(true);
-
-					checkBoxStartPostgres.setSelected(false);
-					checkBoxStopPostgres.setSelected(true);
 					break;
 				}
 
@@ -461,7 +450,7 @@ public class MainWindow {
 				default:
 					checkBoxStartMsSql.setSelected(false);
 					checkBoxStopMsSql.setSelected(true);
-					
+
 					checkBoxStartMySql.setSelected(false);
 					checkBoxStopMySql.setSelected(true);
 
@@ -518,24 +507,25 @@ public class MainWindow {
 						| (postgreesContainerState ? 4 : 0) | (mongoDBContainerState ? 6 : 0);
 
 				switch (switchValue) {
+
 				case 1:
+					checkBoxStartMsSql.setSelected(false);
+					checkBoxStopMsSql.setSelected(true);
+					break;
+
+				case 2:
 					checkBoxStartMySql.setSelected(false);
 					checkBoxStopMySql.setSelected(true);
 					break;
 
-				case 2:
+				case 3:
 					checkBoxStartPostgres.setSelected(false);
 					checkBoxStopPostgres.setSelected(true);
-					break;
-
-				case 3:
-					checkBoxStartMongoDb.setSelected(false);
-					checkBoxStopMongoDb.setSelected(true);
 					break;
 
 				case 4:
-					checkBoxStartPostgres.setSelected(false);
-					checkBoxStopPostgres.setSelected(true);
+					checkBoxStartMongoDb.setSelected(false);
+					checkBoxStopMongoDb.setSelected(true);
 					break;
 
 				default:
@@ -616,11 +606,6 @@ public class MainWindow {
 				case 4:
 					checkBoxStartOracle.setSelected(false);
 					checkBoxStopOracle.setSelected(true);
-					break;
-
-				case 5:
-					checkBoxStartPostgres.setSelected(false);
-					checkBoxStopPostgres.setSelected(true);
 					break;
 
 				default:
