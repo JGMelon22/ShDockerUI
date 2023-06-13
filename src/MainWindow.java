@@ -7,15 +7,15 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-
-import Services.MongoDbService;
-import Services.MsSqlService;
-import Services.MySqlService;
-import Services.OracleService;
-import Services.PostgreService;
-
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+import services.MongoDbService;
+import services.MsSqlService;
+import services.MySqlService;
+import services.OracleService;
+import services.PostgreService;
+
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
