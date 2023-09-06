@@ -2,6 +2,8 @@ package services;
 
 import java.io.IOException;
 
+import javax.swing.JOptionPane;
+
 public class MySqlService extends ContainersService {
 
 	@Override
@@ -13,7 +15,7 @@ public class MySqlService extends ContainersService {
 		try {
 			processBuilder.start();
 		} catch (IOException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Error", 0);
 		}
 	}
 
@@ -26,7 +28,7 @@ public class MySqlService extends ContainersService {
 		try {
 			processBuilder.start();
 		} catch (IOException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Error", 0);
 		}
 
 	}

@@ -2,6 +2,8 @@ package services;
 
 import java.io.IOException;
 
+import javax.swing.JOptionPane;
+
 public class MsSqlService extends ContainersService {
 	@Override
 	public void Start() {
@@ -13,8 +15,8 @@ public class MsSqlService extends ContainersService {
 
 		try {
 			processBuilder.start();
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Error", 0);
 		}
 	}
 
@@ -27,7 +29,7 @@ public class MsSqlService extends ContainersService {
 		try {
 			processBuilder.start();
 		} catch (IOException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Error", 0);
 		}
 	}
 }
