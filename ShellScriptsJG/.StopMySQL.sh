@@ -1,1 +1,1 @@
-sudo docker stop MySQL1 && sudo systemctl stop docker
+sudo docker stop MySQL1 && sudo systemctl stop docker.socket

@@ -1,1 +1,1 @@
-sudo docker stop MongoDb && sudo systemctl stop docker
+sudo docker stop MongoDb && sudo systemctl stop docker.socket

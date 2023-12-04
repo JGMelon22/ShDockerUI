@@ -1,1 +1,1 @@
-sudo docker stop Postgres && sudo systemctl stop docker
+sudo docker stop Postgres && sudo systemctl stop docker.socket

@@ -1,1 +1,1 @@
-sudo docker stop OracleXE && sudo systemctl stop docker
+sudo docker stop OracleXE && sudo systemctl stop docker.socket
