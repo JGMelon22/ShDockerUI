@@ -77,7 +77,7 @@ public class MainWindow {
 		frmShDockerUi = new JFrame();
 		frmShDockerUi.setFont(new Font("FreeSans", Font.PLAIN, 13));
 		frmShDockerUi.setTitle("Shell Docker UI");
-		frmShDockerUi.setBounds(100, 100, 450, 420);
+		frmShDockerUi.setBounds(100, 100, 406, 420);
 		frmShDockerUi.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmShDockerUi.setLocationRelativeTo(null);
 		frmShDockerUi.setResizable(false);
