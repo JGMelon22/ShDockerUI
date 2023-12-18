@@ -15,7 +15,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import services.MongoDbService;
 import services.MsSqlService;
 import services.MySqlService;
-import services.OracleService;
+import services.RedisService;
 import services.PostgreService;
 
 import java.awt.Font;
@@ -97,7 +97,7 @@ public class MainWindow {
 		lblNewLabel_2.setFont(new Font("Dialog", Font.PLAIN, 14));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 
-		JLabel lblNewLabel_3 = new JLabel("Oracle");
+		JLabel lblNewLabel_3 = new JLabel("Redis");
 		lblNewLabel_3.setFont(new Font("Dialog", Font.PLAIN, 14));
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 
@@ -123,11 +123,11 @@ public class MainWindow {
 		JButton btnStopPostgres = new JButton("Stop");
 		btnStopPostgres.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
-		JButton btnStartOracle = new JButton("Start");
-		btnStartOracle.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		JButton btnStartRedis = new JButton("Start");
+		btnStartRedis.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
-		JButton btnStopOracle = new JButton("Stop");
-		btnStopOracle.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		JButton btnStopRedis = new JButton("Stop");
+		btnStopRedis.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
 		JButton btnStopMongoDb = new JButton("Stop");
 		btnStopMongoDb.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -141,11 +141,11 @@ public class MainWindow {
 		checkBoxStopMongoDb.setEnabled(false);
 		checkBoxStopMongoDb.setHorizontalAlignment(SwingConstants.CENTER);
 
-		JCheckBox checkBoxStopOracle = new JCheckBox("");
-		checkBoxStopOracle.setToolTipText("Oracle container is stopped");
-		checkBoxStopOracle.setFont(new Font("Dialog", Font.BOLD, 14));
-		checkBoxStopOracle.setEnabled(false);
-		checkBoxStopOracle.setHorizontalAlignment(SwingConstants.CENTER);
+		JCheckBox checkBoxStopRedis = new JCheckBox("");
+		checkBoxStopRedis.setToolTipText("Redis container is stopped");
+		checkBoxStopRedis.setFont(new Font("Dialog", Font.BOLD, 14));
+		checkBoxStopRedis.setEnabled(false);
+		checkBoxStopRedis.setHorizontalAlignment(SwingConstants.CENTER);
 
 		JCheckBox checkBoxStopPostgres = new JCheckBox("");
 		checkBoxStopPostgres.setToolTipText("Postgres container is stopped");
@@ -171,11 +171,11 @@ public class MainWindow {
 		checkBoxStartMongoDb.setEnabled(false);
 		checkBoxStartMongoDb.setHorizontalAlignment(SwingConstants.CENTER);
 
-		JCheckBox checkBoxStartOracle = new JCheckBox("");
-		checkBoxStartOracle.setToolTipText("Oracle container is running");
-		checkBoxStartOracle.setFont(new Font("Dialog", Font.BOLD, 14));
-		checkBoxStartOracle.setEnabled(false);
-		checkBoxStartOracle.setHorizontalAlignment(SwingConstants.CENTER);
+		JCheckBox checkBoxStartRedis = new JCheckBox("");
+		checkBoxStartRedis.setToolTipText("Redis container is running");
+		checkBoxStartRedis.setFont(new Font("Dialog", Font.BOLD, 14));
+		checkBoxStartRedis.setEnabled(false);
+		checkBoxStartRedis.setHorizontalAlignment(SwingConstants.CENTER);
 
 		JCheckBox checkBoxStartPostgres = new JCheckBox("");
 		checkBoxStartPostgres.setToolTipText("Postgres container is running");
@@ -198,7 +198,7 @@ public class MainWindow {
 		checkBoxStopMsSql.setSelected(true);
 		checkBoxStopMySql.setSelected(true);
 		checkBoxStopPostgres.setSelected(true);
-		checkBoxStopOracle.setSelected(true);
+		checkBoxStopRedis.setSelected(true);
 		checkBoxStopMongoDb.setSelected(true);
 
 		// Start SQL Server Service
@@ -233,11 +233,11 @@ public class MainWindow {
 				// Judges the other Container check boxes
 				boolean mySqlContainerState = checkBoxStartMySql.isSelected();
 				boolean postgreesContainerState = checkBoxStartPostgres.isSelected();
-				boolean oracleContainerState = checkBoxStartOracle.isSelected();
+				boolean RedisContainerState = checkBoxStartRedis.isSelected();
 				boolean mongoDBContainerState = checkBoxStartMongoDb.isSelected();
 
 				int switchValue = (mySqlContainerState ? 1 : 0) | (postgreesContainerState ? 2 : 0)
-						| (oracleContainerState ? 4 : 0) | (mongoDBContainerState ? 6 : 0);
+						| (RedisContainerState ? 4 : 0) | (mongoDBContainerState ? 6 : 0);
 
 				switch (switchValue) {
 
@@ -248,8 +248,8 @@ public class MainWindow {
 					checkBoxStartPostgres.setSelected(false);
 					checkBoxStopPostgres.setSelected(true);
 
-					checkBoxStartOracle.setSelected(false);
-					checkBoxStopOracle.setSelected(true);
+					checkBoxStartRedis.setSelected(false);
+					checkBoxStopRedis.setSelected(true);
 
 					checkBoxStartMongoDb.setSelected(false);
 					checkBoxStopMongoDb.setSelected(true);
@@ -293,11 +293,11 @@ public class MainWindow {
 				// Judges the other Container check boxes
 				boolean msSqlContainerState = checkBoxStartMsSql.isSelected();
 				boolean postgreesContainerState = checkBoxStartPostgres.isSelected();
-				boolean oracleContainerState = checkBoxStartOracle.isSelected();
+				boolean RedisContainerState = checkBoxStartRedis.isSelected();
 				boolean mongoDBContainerState = checkBoxStartMongoDb.isSelected();
 
 				int switchValue = (msSqlContainerState ? 1 : 0) | (postgreesContainerState ? 2 : 0)
-						| (oracleContainerState ? 4 : 0) | (mongoDBContainerState ? 6 : 0);
+						| (RedisContainerState ? 4 : 0) | (mongoDBContainerState ? 6 : 0);
 
 				switch (switchValue) {
 
@@ -308,8 +308,8 @@ public class MainWindow {
 					checkBoxStartPostgres.setSelected(false);
 					checkBoxStopPostgres.setSelected(true);
 
-					checkBoxStartOracle.setSelected(false);
-					checkBoxStopOracle.setSelected(true);
+					checkBoxStartRedis.setSelected(false);
+					checkBoxStopRedis.setSelected(true);
 
 					checkBoxStartMongoDb.setSelected(false);
 					checkBoxStopMongoDb.setSelected(true);
@@ -353,11 +353,11 @@ public class MainWindow {
 				// Judges the other Container check boxes
 				boolean msSqlContainerState = checkBoxStartMsSql.isSelected();
 				boolean mySqlContainerState = checkBoxStartMySql.isSelected();
-				boolean oracleContainerState = checkBoxStartOracle.isSelected();
+				boolean RedisContainerState = checkBoxStartRedis.isSelected();
 				boolean mongoDBContainerState = checkBoxStartMongoDb.isSelected();
 
 				int switchValue = (msSqlContainerState ? 1 : 0) | (mySqlContainerState ? 2 : 0)
-						| (oracleContainerState ? 4 : 0) | (mongoDBContainerState ? 6 : 0);
+						| (RedisContainerState ? 4 : 0) | (mongoDBContainerState ? 6 : 0);
 
 				switch (switchValue) {
 
@@ -368,8 +368,8 @@ public class MainWindow {
 					checkBoxStartMySql.setSelected(false);
 					checkBoxStopMySql.setSelected(true);
 
-					checkBoxStartOracle.setSelected(false);
-					checkBoxStopOracle.setSelected(true);
+					checkBoxStartRedis.setSelected(false);
+					checkBoxStopRedis.setSelected(true);
 
 					checkBoxStartMongoDb.setSelected(false);
 					checkBoxStopMongoDb.setSelected(true);
@@ -381,34 +381,34 @@ public class MainWindow {
 			}
 		});
 
-		// Start Oracle Service
-		btnStartOracle.addActionListener(new ActionListener() {
+		// Start Redis Service
+		btnStartRedis.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				OracleService oracleService = new OracleService();
+				RedisService RedisService = new RedisService();
 
 				// Using thread to improve code speed
-				Thread threadStartOracle = new Thread(() -> {
-					oracleService.Start();
+				Thread threadStartRedis = new Thread(() -> {
+					RedisService.Start();
 				});
 
-				threadStartOracle.start();
+				threadStartRedis.start();
 
-				checkBoxStartOracle.setSelected(true);
-				checkBoxStopOracle.setSelected(false);
+				checkBoxStartRedis.setSelected(true);
+				checkBoxStopRedis.setSelected(false);
 			}
 		});
 
-		// Stop Oracle Service
-		btnStopOracle.addActionListener(new ActionListener() {
+		// Stop Redis Service
+		btnStopRedis.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				OracleService oracleService = new OracleService();
+				RedisService RedisService = new RedisService();
 
 				// Using thread to improve code speed
-				Thread threadStopOracle = new Thread(() -> {
-					oracleService.Stop();
+				Thread threadStopRedis = new Thread(() -> {
+					RedisService.Stop();
 				});
 
-				threadStopOracle.start();
+				threadStopRedis.start();
 
 				// Judges the other Container check boxes
 				boolean msSqlContainerState = checkBoxStartMsSql.isSelected();
@@ -437,8 +437,8 @@ public class MainWindow {
 					break;
 				}
 
-				checkBoxStopOracle.setSelected(true);
-				checkBoxStartOracle.setSelected(false);
+				checkBoxStopRedis.setSelected(true);
+				checkBoxStartRedis.setSelected(false);
 			}
 		});
 
@@ -475,10 +475,10 @@ public class MainWindow {
 				boolean msSqlContainerState = checkBoxStartMsSql.isSelected();
 				boolean mySqlContainerState = checkBoxStartMySql.isSelected();
 				boolean postgreesContainerState = checkBoxStartPostgres.isSelected();
-				boolean oracleContainerState = checkBoxStartOracle.isSelected();
+				boolean RedisContainerState = checkBoxStartRedis.isSelected();
 
 				int switchValue = (msSqlContainerState ? 1 : 0) | (mySqlContainerState ? 2 : 0)
-						| (postgreesContainerState ? 4 : 0) | (oracleContainerState ? 6 : 0);
+						| (postgreesContainerState ? 4 : 0) | (RedisContainerState ? 6 : 0);
 
 				switch (switchValue) {
 
@@ -489,8 +489,8 @@ public class MainWindow {
 					checkBoxStartPostgres.setSelected(false);
 					checkBoxStopPostgres.setSelected(true);
 
-					checkBoxStartOracle.setSelected(false);
-					checkBoxStopOracle.setSelected(true);
+					checkBoxStartRedis.setSelected(false);
+					checkBoxStopRedis.setSelected(true);
 
 					checkBoxStartPostgres.setSelected(false);
 					checkBoxStopPostgres.setSelected(true);
@@ -520,7 +520,7 @@ public class MainWindow {
 						.addComponent(checkBoxStartPostgres, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
 						.addComponent(checkBoxStartMySql, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
 						.addComponent(checkBoxStartMsSql, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-						.addComponent(checkBoxStartOracle, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+						.addComponent(checkBoxStartRedis, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
 						.addComponent(checkBoxStartMongoDb, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_layeredPane.createParallelGroup(Alignment.LEADING)
@@ -552,11 +552,11 @@ public class MainWindow {
 									.addGap(3)
 									.addComponent(btnStopMySql, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE))
 								.addGroup(gl_layeredPane.createSequentialGroup()
-									.addComponent(btnStartOracle, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
+									.addComponent(btnStartRedis, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
 									.addGap(3)
 									.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 5, GroupLayout.PREFERRED_SIZE)
 									.addGap(3)
-									.addComponent(btnStopOracle, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE))
+									.addComponent(btnStopRedis, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE))
 								.addGroup(gl_layeredPane.createSequentialGroup()
 									.addComponent(btnStartMongoDb, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
 									.addGap(3)
@@ -575,7 +575,7 @@ public class MainWindow {
 									.addComponent(checkBoxStopPostgres, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
 								.addGroup(gl_layeredPane.createSequentialGroup()
 									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(checkBoxStopOracle, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
+									.addComponent(checkBoxStopRedis, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
 								.addGroup(gl_layeredPane.createSequentialGroup()
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addComponent(checkBoxStopMongoDb)))))
@@ -638,13 +638,13 @@ public class MainWindow {
 						.addGroup(gl_layeredPane.createSequentialGroup()
 							.addGroup(gl_layeredPane.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_layeredPane.createParallelGroup(Alignment.BASELINE)
-									.addComponent(btnStartOracle)
-									.addComponent(btnStopOracle))
+									.addComponent(btnStartRedis)
+									.addComponent(btnStopRedis))
 								.addComponent(label_1))
 							.addGap(18)
 							.addComponent(lblNewLabel_4))
-						.addComponent(checkBoxStartOracle, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-						.addComponent(checkBoxStopOracle, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
+						.addComponent(checkBoxStartRedis, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+						.addComponent(checkBoxStopRedis, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_layeredPane.createParallelGroup(Alignment.LEADING)
 						.addComponent(label)
