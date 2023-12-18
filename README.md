@@ -1,7 +1,7 @@
 # Shell script Docker UI
 A basic JFrame project to start/stop Docker containers with a button click using simple shell scripts 
 
-<img src="https://github.com/JGMelon22/ShDockerUI/assets/73988556/83e75885-fbfb-4856-bbdb-7a94ea41dcae" alt="" width="35%"/></br>
+<img src="https://github.com/JGMelon22/ShDockerUI/assets/73988556/0d222e80-edb9-4c55-a362-dd689d51b87e" alt="" width="35%"/></br>
 
 <h3>🛠️🚧 How to build and run?</h3> 
   
