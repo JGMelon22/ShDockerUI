@@ -1,1 +1,2 @@
-sudo systemctl start docker && sudo docker start MySQL1
+#!/bin/bash
+sudo systemctl start docker && sudo docker start MySQL
