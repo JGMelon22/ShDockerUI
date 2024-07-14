@@ -9,7 +9,7 @@ public class MsSqlService extends ContainersService {
 	public void Start() {
 
 		// Invoke a Linux terminal emulator passing a custom shell script as parameter
-		String[] command = new String[] { "xfce4-terminal", "-e", getUserPath() + "/.StartDocker.sh" };
+		String[] command = new String[] { "xfce4-terminal", "-e", getUserPath() + "start_mssql.sh" };
 
 		ProcessBuilder processBuilder = new ProcessBuilder(command);
 
@@ -22,7 +22,7 @@ public class MsSqlService extends ContainersService {
 
 	@Override
 	public void Stop() {
-		String[] command = new String[] { "xfce4-terminal", "-e", getUserPath() + "/.StopDocker.sh" };
+		String[] command = new String[] { "xfce4-terminal", "-e", getUserPath() + "stop_mssql.sh" };
 
 		ProcessBuilder processBuilder = new ProcessBuilder(command);
 

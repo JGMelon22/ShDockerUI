@@ -8,7 +8,7 @@ public class PostgreService extends ContainersService {
 
 	@Override
 	public void Start() {
-		String[] command = new String[] { "xfce4-terminal", "-e", getUserPath() + "/.StartPostgres.sh" };
+		String[] command = new String[] { "xfce4-terminal", "-e", getUserPath() + "start_postgres.sh" };
 
 		ProcessBuilder processBuilder = new ProcessBuilder(command);
 
@@ -22,7 +22,7 @@ public class PostgreService extends ContainersService {
 
 	@Override
 	public void Stop() {
-		String[] command = new String[] { "xfce4-terminal", "-e", getUserPath() + "/.StopPostgres.sh" };
+		String[] command = new String[] { "xfce4-terminal", "-e", getUserPath() + "stop_postgres.sh" };
 
 		ProcessBuilder processBuilder = new ProcessBuilder(command);
 

@@ -8,7 +8,7 @@ public class MongoDbService extends ContainersService {
 
 	@Override
 	public void Start() {
-		String[] command = new String[] { "xfce4-terminal", "-e", getUserPath() + "/.StartMongoDb.sh" };
+		String[] command = new String[] { "xfce4-terminal", "-e", getUserPath() + "start_mongodb.sh" };
 
 		ProcessBuilder processBuilder = new ProcessBuilder(command);
 
@@ -21,7 +21,7 @@ public class MongoDbService extends ContainersService {
 
 	@Override
 	public void Stop() {
-		String[] command = new String[] { "xfce4-terminal", "-e", getUserPath() + "/.StopMongoDb.sh" };
+		String[] command = new String[] { "xfce4-terminal", "-e", getUserPath() + "stop_mongodb.sh" };
 
 		ProcessBuilder processBuilder = new ProcessBuilder(command);
 

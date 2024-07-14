@@ -8,7 +8,7 @@ public class MySqlService extends ContainersService {
 
 	@Override
 	public void Start() {
-		String[] command = new String[] { "xfce4-terminal", "-e", getUserPath() + "/.StartMySQL.sh" };
+		String[] command = new String[] { "xfce4-terminal", "-e", getUserPath() + "start_mysql.sh" };
 
 		ProcessBuilder processBuilder = new ProcessBuilder(command);
 
@@ -21,7 +21,7 @@ public class MySqlService extends ContainersService {
 
 	@Override
 	public void Stop() {
-		String[] command = new String[] { "xfce4-terminal", "-e", getUserPath() + "/.StopMySQL.sh" };
+		String[] command = new String[] { "xfce4-terminal", "-e", getUserPath() + "stop_mysql.sh" };
 
 		ProcessBuilder processBuilder = new ProcessBuilder(command);
 

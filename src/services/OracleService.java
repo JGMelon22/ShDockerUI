@@ -8,7 +8,7 @@ public class OracleService extends ContainersService {
 
 	@Override
 	public void Start() {
-		String[] command = new String[] { "xfce4-terminal", "-e", getUserPath() + "/.StartOracle.sh" };
+		String[] command = new String[] { "xfce4-terminal", "-e", getUserPath() + "start_oracle.sh" };
 
 		ProcessBuilder processBuilder = new ProcessBuilder(command);
 
@@ -22,7 +22,7 @@ public class OracleService extends ContainersService {
 
 	@Override
 	public void Stop() {
-		String[] command = new String[] { "xfce4-terminal", "-e", getUserPath() + "/.StopOracle.sh" };
+		String[] command = new String[] { "xfce4-terminal", "-e", getUserPath() + "stop_oracle.sh" };
 
 		ProcessBuilder processBuilder = new ProcessBuilder(command);
 
